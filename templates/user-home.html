@@ -1,0 +1,29 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+{% load static %}
+
+
+{%  block content %}
+
+
+
+<div class=" signin text-center">
+
+    <a href="{% provider_login_url 'google' %}" class="text-dark">
+        <img src="{% static "btn_google_signin_dark_normal_web@2x.png" %}" style="width:14rem; height:auto;" alt="google_image" ></a>
+</div>
+{% if user.is_authenticated %}
+<h2 class="text-center">{{ user.username }}</h2>
+<br>
+<p>{{user.first_name}}</p>
+<p>{{user.email}}</p>
+
+
+{%else%}
+
+<h2>Login for Posting</h2>
+{% endif %}
+
+
+{% endblock %}
